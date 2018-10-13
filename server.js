@@ -90,16 +90,19 @@ app.get("/api/commented", function(req, res) {
         var articles = []
         for (var i = 0; i < data.length; i++) {
             var comment = data[i];
-            var art = []
+            var art = [];
             db.Article.find({_id: comment.articleId}, function(err, d) {
                 // console.log("d" + d);
                 // console.log("i" + comment)
-                d.comment = comment
+                d["comment"] = (comment)
+                console.log("NEW", d);
                 art.push(d);
             });
-            articles.push(art);
+            console.log(art)
+            articles = art;
         }
         console.log("Articles" + articles);
+
         res.render("comment", {results: articles});
     })
 });

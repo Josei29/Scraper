@@ -30,12 +30,12 @@
         {{#each results}}
         <li>
             <div class="card">
-                <h5 class="card-header">{{this.title}}</h5>
+                <h5 class="card-header">{{this.[0].title}}</h5>
                 <div class="card-body">
-                    <p>{{this.summary}}</p>
+                    <p>{{this.[0].summary}}</p>
                     <a href="https://www.nytimes.com{{this.link}}" target="_blank">Check it out!</a>
                     <br>
-                    <p>{{this.comment}}</p>
+                    <p>Your Comment: {{this.comment.body}}</p>
                 </div>
             </div>
         </li>
